@@ -1,0 +1,25 @@
+# Python requirements for the enhanced job recommendation system
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+sqlalchemy==2.0.30
+asyncpg==0.29.0
+alembic==1.13.1
+pydantic==2.7.0
+pydantic-settings==2.2.1
+python-multipart==0.0.9
+psycopg2-binary==2.9.9
+sentence-transformers==3.0.1
+torch==2.2.2
+beautifulsoup4==4.12.3
+html2text==2024.2.26
+scikit-learn==1.4.0
+numpy==1.26.4
+pandas==2.2.2
+pydantic[email]==2.7.0
+alembic==1.13.1
+python-dateutil==2.9.0
+cryptography==42.0.4
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+Faker==25.1.0
+schedule==1.2.0
