@@ -1,5 +1,7 @@
 # Job Recommendation System
 
+> **Note**: This project is a prototype for the jobs.af job recommendation system and is used in the jobs.af project.
+
 A high-performance, AI-powered job recommendation system built with FastAPI, PostgreSQL, and pgvector. The system uses multilingual sentence transformers to generate semantic embeddings and provides intelligent job matching based on skills, experience, and domain expertise.
 
 ## 🚀 Features
