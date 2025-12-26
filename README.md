@@ -4,7 +4,7 @@
 
 A high-performance, AI-powered job recommendation system built with FastAPI, PostgreSQL, and pgvector. The system uses multilingual sentence transformers to generate semantic embeddings and provides intelligent job matching based on skills, experience, and domain expertise.
 
-## 🚀 Features
+## Features
 
 - **AI-Powered Matching**: Uses multilingual sentence transformers (`paraphrase-multilingual-MiniLM-L12-v2`) for semantic similarity
 - **High Performance**: Optimized for sub-second response times (target: <1s) even with millions of jobs
@@ -16,14 +16,14 @@ A high-performance, AI-powered job recommendation system built with FastAPI, Pos
 - **Dockerized**: Complete containerized setup with Docker Compose
 - **Background Processing**: Scheduled vector computation for new jobs and applicants
 
-## 📊 Performance
+## Performance
 
 - **Response Time**: ~780ms for 200 job recommendations
 - **Scalability**: Handles millions of jobs efficiently using two-phase optimization
 - **Database**: PostgreSQL with pgvector for vector similarity search
 - **Optimization**: Only processes top 200 candidates for detailed scoring
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -65,7 +65,7 @@ job_recommender_db/
 └── README.md             # This file
 ```
 
-## 🧠 Recommendation Algorithm
+## Recommendation Algorithm
 
 The system uses a sophisticated multi-factor weighted scoring algorithm:
 
@@ -150,7 +150,7 @@ weighted_score = (
 final_score = min(1.0, max(0.0, weighted_score))
 ```
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Backend Framework**: FastAPI (Python 3.11+)
 - **Database**: PostgreSQL 15+ with pgvector extension
@@ -161,13 +161,13 @@ final_score = min(1.0, max(0.0, weighted_score))
 - **Scheduling**: schedule library for background jobs
 - **Data Processing**: NumPy, scikit-learn
 
-## 📦 Prerequisites
+## Prerequisites
 
 - Docker and Docker Compose
 - Python 3.11+ (for local development)
 - PostgreSQL 15+ with pgvector extension (if running locally)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Automated Setup (Recommended)
 
@@ -322,7 +322,7 @@ curl "http://localhost:8000/recommendations/2085d6cd-b96a-4872-b61c-513feb652155
 curl "http://localhost:8000/recommendations/2085d6cd-b96a-4872-b61c-513feb652155/paginated?page=1&size=5"
 ```
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### Key Tables
 
@@ -340,7 +340,7 @@ curl "http://localhost:8000/recommendations/2085d6cd-b96a-4872-b61c-513feb652155
 
 Embeddings are stored as JSON strings in the database and parsed to PostgreSQL `vector(384)` type during queries. For optimal performance with large datasets, consider migrating to native `vector` type columns.
 
-## ⚡ Performance Optimizations
+## Performance Optimizations
 
 ### 1. Two-Phase Approach
 
@@ -376,7 +376,7 @@ Embeddings are stored as JSON strings in the database and parsed to PostgreSQL `
 - Embeddings stored in database (no regeneration)
 - Global embedder instance (model loaded once)
 
-## 🔄 Background Processing
+## Background Processing
 
 The system includes a background scheduler (`utils/scheduler.py`) that:
 
@@ -385,7 +385,7 @@ The system includes a background scheduler (`utils/scheduler.py`) that:
 - Processes jobs and applicants that don't have embeddings yet
 - Automatically updates vectors when new data is added
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run the application
@@ -398,7 +398,7 @@ curl http://localhost:8000/health
 curl "http://localhost:8000/recommendations/{applicant_id}?top_k=20"
 ```
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 - **Average Response Time**: ~780ms for 200 recommendations
 - **Throughput**: Handles concurrent requests efficiently
@@ -406,7 +406,7 @@ curl "http://localhost:8000/recommendations/{applicant_id}?top_k=20"
 - **Memory Usage**: Optimized to load only necessary data
 - **Database Load**: Efficient queries with proper indexing
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - [ ] Migrate embeddings to native PostgreSQL `vector` type for better performance
 - [ ] Add vector indexes (HNSW/IVFFlat) for faster similarity search
@@ -419,7 +419,7 @@ curl "http://localhost:8000/recommendations/{applicant_id}?top_k=20"
 - [ ] GraphQL API option
 - [ ] Rate limiting and API authentication
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Issue: pgvector operator not found
 
@@ -447,15 +447,15 @@ CREATE EXTENSION IF NOT EXISTS vector;
 3. Check if jobs are published and open
 4. Verify applicant has skills/experience data
 
-## 📝 License
+## License
 
 This project is open-source and available under the MIT license.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📧 Support
+## Support
 
 For issues and questions, please open an issue on the repository.
 
